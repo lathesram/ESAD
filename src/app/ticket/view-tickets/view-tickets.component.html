@@ -1,1 +1,31 @@
-<p>view-tickets works!</p>
+<div class="ticket-container">
+  <button mat-raised-button color="primary" (click)="openAddTicketDialog()">
+    Add New Ticket
+  </button>
+
+  <div *ngFor="let ticket of tickets">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ ticket.issueType }} - {{ ticket.priority }} - {{ ticket.status }}
+        </mat-panel-title>
+        <mat-panel-description>
+          Submitted on: {{ ticket.submittedDate }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="ticket-details">
+        <p><strong>Comment:</strong> {{ ticket.comment }}</p>
+        <p>
+          <strong>Resolved:</strong> {{ ticket.issueResolved ? "Yes" : "No" }}
+        </p>
+        <button
+          mat-button
+          color="accent"
+          (click)="openEditTicketDialog(ticket)"
+        >
+          Edit
+        </button>
+      </div>
+    </mat-expansion-panel>
+  </div>
+</div>

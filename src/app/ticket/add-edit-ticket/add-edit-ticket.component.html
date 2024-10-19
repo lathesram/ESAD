@@ -1,1 +1,74 @@
-<p>add-edit-ticket works!</p>
+<mat-card>
+  <mat-card-title>Submit a Support Ticket</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="ticketForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Customer ID</mat-label>
+        <input
+          matInput
+          formControlName="customerId"
+          type="number"
+          placeholder="Enter customer ID"
+        />
+        <mat-error *ngIf="ticketForm.get('customerId')?.invalid"
+          >Customer ID is required</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Issue Type</mat-label>
+        <mat-select formControlName="issueType">
+          <mat-option value="Technical Issue">Technical Issue</mat-option>
+          <mat-option value="Billing Issue">Billing Issue</mat-option>
+          <mat-option value="General Inquiry">General Inquiry</mat-option>
+        </mat-select>
+        <mat-error *ngIf="ticketForm.get('issueType')?.invalid"
+          >Issue type is required</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Comment</mat-label>
+        <textarea
+          matInput
+          formControlName="comment"
+          placeholder="Describe the issue"
+        ></textarea>
+        <mat-error *ngIf="ticketForm.get('comment')?.invalid"
+          >Comment is required</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Priority</mat-label>
+        <mat-select formControlName="priority">
+          <mat-option value="Low">Low</mat-option>
+          <mat-option value="Medium">Medium</mat-option>
+          <mat-option value="High">High</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-slide-toggle formControlName="issueResolved"
+        >Issue Resolved</mat-slide-toggle
+      >
+
+      <mat-form-field appearance="fill">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+          <mat-option value="Open">Open</mat-option>
+          <mat-option value="In Progress">In Progress</mat-option>
+          <mat-option value="Closed">Closed</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="ticketForm.invalid"
+      >
+        Submit
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

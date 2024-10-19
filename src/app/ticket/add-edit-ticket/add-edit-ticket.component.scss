@@ -1,0 +1,39 @@
+mat-card {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    
+    mat-card-title {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      text-align: center;
+      color: #1976d2;
+    }
+  
+    mat-card-content {
+      display: flex;
+      flex-direction: column;
+      
+      form {
+        display: flex;
+        flex-direction: column;
+        
+        mat-form-field {
+          margin-bottom: 15px;
+        }
+  
+        button {
+          margin-top: 20px;
+          align-self: flex-end;
+        }
+      }
+    }
+  }
+  
+  /* Style for error messages */
+  mat-error {
+    color: red; /* Set error message color to red */
+    font-size: 0.875em; /* Slightly smaller font size for error messages */
+  }
