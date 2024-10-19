@@ -1,4 +1,6 @@
-<div class="ticket-container">
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+
+<div *ngIf="!isLoading" class="ticket-container">
   <button mat-raised-button color="primary" (click)="openAddTicketDialog()">
     Add New Ticket
   </button>
@@ -24,6 +26,14 @@
           (click)="openEditTicketDialog(ticket)"
         >
           Edit
+        </button>
+
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="openUpdateStatusDialog(ticket)"
+        >
+          Update Status
         </button>
       </div>
     </mat-expansion-panel>

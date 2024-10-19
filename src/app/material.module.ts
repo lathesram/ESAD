@@ -13,6 +13,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 const materialModules = [
   MatToolbarModule,
@@ -29,6 +30,7 @@ const materialModules = [
   ReactiveFormsModule,
   MatExpansionModule,
   MatDialogModule,
+  MatProgressSpinnerModule,
 ];
 
 @NgModule({

@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { SupportTicket } from 'src/app/model/model';
+import { SupportTicket } from 'src/app/ticket/model';
+import { TicketService } from '../ticket.service';
 
 @Component({
   selector: 'app-add-edit-ticket',
@@ -14,7 +15,7 @@ export class AddEditTicketComponent {
 
   constructor(
     private fb: FormBuilder,
-    private http: HttpClient,
+    private ticketService: TicketService,
     private dialogRef: MatDialogRef<AddEditTicketComponent>,
     @Inject(MAT_DIALOG_DATA) public data: SupportTicket
   ) {}
@@ -46,19 +47,13 @@ export class AddEditTicketComponent {
     this.dialogRef.close(true);
   }
 
-  fetchTicket(id: number): void {}
-
   createTicket(): void {
-    if (this.ticketForm.valid) {
-      const ticketData = this.ticketForm.value;
-      console.log(ticketData);
-      // Handle the endpoint here
-    }
+    const ticketData = this.ticketForm.value;
+    this.ticketService.createTicket(ticketData).subscribe();
   }
 
   updateTicket(): void {
     const ticketData = this.ticketForm.value;
-    console.log(ticketData);
-    // Handle update endpoint here
+    this.ticketService.createTicket(ticketData).subscribe();
   }
 }

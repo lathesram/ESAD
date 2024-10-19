@@ -1,4 +1,4 @@
-import { TicketPriority, TicketStatus } from "../enums/enum";
+import { TicketPriority, TicketStatus } from "./enum";
 
 export interface SupportTicket {
     id?: number;
