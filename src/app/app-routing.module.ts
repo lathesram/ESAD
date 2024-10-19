@@ -1,10 +1,48 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    title: 'Home Page',
+    component: HomeComponent,
+  },
+  {
+    path: 'auth',
+    title: 'Authentication',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+  },
+  {
+    path: 'marketing',
+    title: 'Marketing',
+    loadChildren: () =>
+      import('./marketing/marketing.module').then((m) => m.MarketingModule),
+  },
+  {
+    path: 'reporting',
+    title: 'Reporting',
+    loadChildren: () =>
+      import('./reporting/reporting.module').then((m) => m.ReportingModule),
+  },
+  {
+    path: 'ticket',
+    title: 'Ticket',
+    loadChildren: () =>
+      import('./ticket/ticket.module').then((m) => m.TicketModule),
+  },
+  {
+    path: 'registration',
+    title: 'Vehicle Registration',
+    loadChildren: () =>
+      import('./vehcile-registration/vehicle-registration.module').then(
+        (m) => m.VehicleRegistrationModule
+      ),
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
